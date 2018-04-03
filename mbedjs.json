@@ -1,0 +1,9 @@
+{
+	"source": [
+		"."
+	],
+	"includes": [
+		"mbed-msb-js-wrapper/mbed-msb-js-wrapper_lib.h"
+	],
+	"name": "mbed-msb-js-wrapper"
+}
