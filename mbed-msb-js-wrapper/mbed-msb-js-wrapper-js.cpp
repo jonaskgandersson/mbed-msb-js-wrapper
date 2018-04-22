@@ -1,8 +1,8 @@
 
 #include "jerryscript-mbed-library-registry/wrap_tools.h"
 
-#include "mbed-msb-wrapper-js.h"
-#include "mbed-msb-wrapper.h"
+#include "mbed-msb-js-wrapper-js.h"
+#include "mbed-msb-js-wrapper.h"
 
 #include <string>
 
@@ -114,9 +114,9 @@ DECLARE_CLASS_FUNCTION(Msb, getNameOfClass) {
  * @param string to print
  * 
  */
-DECLARE_CLASS_FUNCTION(Msb, printString) {
-    CHECK_ARGUMENT_COUNT(Msb, printString, (args_count == 1));
-    CHECK_ARGUMENT_TYPE_ALWAYS(Msb, printString, 0, string );
+DECLARE_CLASS_FUNCTION(Msb, debug) {
+    CHECK_ARGUMENT_COUNT(Msb, debug, (args_count == 1));
+    CHECK_ARGUMENT_TYPE_ALWAYS(Msb, debug, 0, string );
 
     // Extract native Echo pointer
     void* void_ptr;
@@ -142,7 +142,7 @@ DECLARE_CLASS_FUNCTION(Msb, printString) {
 
     if( res == size )
     {
-        native_ptr->printString((const char *)buffer, size );
+        native_ptr->debug((const char *)buffer, size );
     }
     else
     {
@@ -173,7 +173,7 @@ DECLARE_CLASS_CONSTRUCTOR(Msb) {
     ATTACH_CLASS_FUNCTION(js_object, Msb, echoInt);
     ATTACH_CLASS_FUNCTION(js_object, Msb, getNumCalls);
     ATTACH_CLASS_FUNCTION(js_object, Msb, getNameOfClass);
-    ATTACH_CLASS_FUNCTION(js_object, Msb, printString);
+    ATTACH_CLASS_FUNCTION(js_object, Msb, debug);
 
     return js_object;
 }
